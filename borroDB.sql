@@ -1,4 +1,4 @@
--- schema.sql
+
 -- Defines the database structure based on the project's ER diagram.
 
 CREATE TABLE LOCATION (
