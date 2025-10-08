@@ -36,14 +36,21 @@ CREATE TABLE VULNERABILITY (
     FOREIGN KEY (LocationID) REFERENCES LOCATION (LocationID)
 );
 
+-- Table to store the final calculated risk scores
 CREATE TABLE RISK (
     RiskID INTEGER PRIMARY KEY AUTOINCREMENT,
     LocationID INTEGER NOT NULL,
+    EventID INTEGER,
+    LoreID INTEGER,
+    VulnerabilityID INTEGER,
     H_Score REAL NOT NULL,
     L_Score REAL NOT NULL,
     V_Score REAL NOT NULL,
     Probability REAL,
     Impact REAL,
     OverallScore REAL NOT NULL,
-    FOREIGN KEY (LocationID) REFERENCES LOCATION (LocationID)
+    FOREIGN KEY (LocationID) REFERENCES LOCATION (LocationID),
+    FOREIGN KEY (EventID) REFERENCES EVENT (EventID),
+    FOREIGN KEY (LoreID) REFERENCES LOCAL_LORE (LoreID),
+    FOREIGN KEY (VulnerabilityID) REFERENCES VULNERABILITY (VulnerabilityID)
 );
