@@ -9,7 +9,7 @@ connection = sqlite3.connect(DB_NAME)
 
 # Enable foreign key support
 connection.execute("PRAGMA foreign_keys = 1")
-
+#
 # Read and execute the schema file
 with open(SCHEMA_FILE) as f:
     connection.executescript(f.read())
